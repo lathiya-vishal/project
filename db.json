@@ -1,0 +1,40 @@
+{
+  "signupdata": [
+    {
+      "name": "vishal",
+      "email": "vishal@gmail.com",
+      "password": "vishal@123",
+      "id": 1
+    },
+    {
+      "name": "vishal",
+      "email": "vishal@gmail.com",
+      "password": "vishal@123",
+      "id": 2
+    },
+    {
+      "name": "vishal",
+      "email": "vishal@gmail.com",
+      "password": "vishal@123",
+      "id": 3
+    },
+    {
+      "name": "vishal",
+      "email": "vishal@gmail.com",
+      "password": "vishal@123",
+      "id": 4
+    },
+    {
+      "name": "jenish",
+      "email": "jenish@gmail.com",
+      "password": "jenish@123",
+      "id": 5
+    },
+    {
+      "name": "prince",
+      "email": "prince@gmail.com",
+      "password": "prince@123",
+      "id": 6
+    }
+  ]
+}

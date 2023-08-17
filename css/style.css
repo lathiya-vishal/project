@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+    font-family: 'Poppins', sans-serif;
+}
+.container{
+    max-width: 1140px;
+    margin: auto;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+a{
+    text-decoration: none;
+}
+ul,ol{
+    list-style: none;
+}
+.justify-content-between{
+    justify-content: space-between;
+}
+.justify-content-center{
+    justify-content: center;
+}
+.align-items{
+    align-items: center;
+}
+
+
+header{
+    padding: 20px;
+    background-color: black;
+}
+header nav ul li a{
+    padding: 10px 20px;
+    color: white;
+    font-size: 20px;
+}
+
+.banner{
+    background-image: url(../image/v760-toon-50.jpg);
+    height: 100vh;
+    background-size: cover;
+}
+.w-50{
+    width: 50%;
+}
+.banner h1{
+    color: white;
+    font-size: 50px;
+    margin-top: 100px;
+}
+
+form{
+    background:linear-gradient(whitesmoke,black);
+    padding: 100px;
+    border-radius: 10px;
+    display: inline-block;
+    margin: auto;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
