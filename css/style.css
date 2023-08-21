@@ -48,19 +48,48 @@ header nav ul li a{
 .w-50{
     width: 50%;
 }
+.w-10{
+    width: 10%;
+    border-right: 1px solid black;
+}
+.w-90{
+    width: 90%;
+}
 .banner h1{
     color: white;
     font-size: 50px;
-    margin-top: 100px;
+    margin-top: 250px;
 }
 
 form{
-    background:linear-gradient(whitesmoke,black);
+    background:linear-gradient(rgb(255, 255, 255),black);
     padding: 100px;
     border-radius: 10px;
-    display: inline-block;
     margin: auto;
+    height: 100%;
+    display: table;
     justify-content: center;
-    align-content: center;
-    text-align: center;
+    align-items: center;
+
+}
+
+#productpage{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+    overflow: scroll;
+    height: 100vh;
+    padding: 80px 10px;
+}
+#productpage img{
+    width: 200px;
+    height: 200px;
+}
+#lth , #htl{
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    background: linear-gradient(90deg, rgba(93,98,13,1) 7%, rgba(53,97,53,1) 49%, rgba(13,95,98,1) 95%);
+    color: white;
+    border-radius: 8px;
 }

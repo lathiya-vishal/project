@@ -1,6 +1,6 @@
 import nav from "../components/header.js";
 
-document.getElementById("navbar").innerHTML=nav();
+document.getElementById("navbar").innerHTML = nav();
 const userdata = (e) => {
   e.preventDefault();
 
@@ -54,7 +54,11 @@ const userdata = (e) => {
     }
   });
 
-  if (Name.test(user.name) && Email.test(user.email) && password.test(user.password)){
+  if (
+    Name.test(user.name) &&
+    Email.test(user.email) &&
+    password.test(user.password)
+  ) {
     fetch(`http://localhost:3000/signupdata?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => {
@@ -63,18 +67,18 @@ const userdata = (e) => {
           if (data[0].email == user.email) {
             document.getElementById("e-err").innerHTML = "email already exist";
             setTimeout(() => {
-              window.location.href="/pages/signin.html";
+              window.location.href = "/pages/signin.html";
             }, 1000);
           }
         } else {
           try {
-            fetch("http://localhost:3000/signupdata", {
+            fetch("http://localhost:3000/signupdata",{
               method: "POST",
-              headers: { "Content-Type": "application/json" },
+              headers: { "Content-Type": "application/json"},
               body: JSON.stringify(user),
             });
             localStorage.setItem("loggedin", true);
-          } catch (error) {
+          } catch (error){
             alert(Error);
           }
         }
@@ -83,5 +87,3 @@ const userdata = (e) => {
 };
 
 document.querySelector("#form").addEventListener("submit", userdata);
-
-
