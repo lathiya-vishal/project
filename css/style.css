@@ -49,11 +49,11 @@ header nav ul li a{
     width: 50%;
 }
 .w-10{
-    width: 10%;
+    width: 20%;
     border-right: 1px solid black;
 }
 .w-90{
-    width: 90%;
+    width: 80%;
 }
 .banner h1{
     color: white;
@@ -75,7 +75,7 @@ form{
 
 #productpage{
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(3,1fr);
     gap: 10px;
     overflow: scroll;
     height: 100vh;
@@ -84,12 +84,22 @@ form{
 #productpage img{
     width: 200px;
     height: 200px;
+    
 }
-#lth , #htl{
+#productpage div{
+    /* text-align: center; */
+}
+.product h3{
+    text-align: center;
+}
+.sort-btn>button{ 
     padding: 10px;
     margin: 10px;
     border: none;
     background: linear-gradient(90deg, rgba(93,98,13,1) 7%, rgba(53,97,53,1) 49%, rgba(13,95,98,1) 95%);
     color: white;
     border-radius: 8px;
+    width: 90%;
+    cursor: pointer;
 }
+

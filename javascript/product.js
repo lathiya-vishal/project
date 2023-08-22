@@ -18,14 +18,19 @@ const product =(data)=>{
         let title = document.createElement("h2");
         title.innerHTML = item.title;
         title.style.paddingBottom="10px"
+        title.style.color="white"
 
-        let price = document.createElement("h3");
+        let price = document.createElement("h2");
         price.innerHTML = item.price;
         price.style.paddingBottom="10px"
+        price.style.color="white"
+
 
         let category = document.createElement("h4");
         category.innerHTML = item.category;
         category.style.paddingBottom="10px"
+        category.style.color="white"
+
       
         let star = document.createElement("p");
         if (item.rating.rate > 4){
@@ -42,6 +47,7 @@ const product =(data)=>{
         }
         star.style.paddingBottom="10px"
         star.style.fontSize="50px"
+
 
         let div = document.createElement("div")
         div.style.borderRadius="10px"
@@ -66,6 +72,37 @@ const handelhtl =()=>{
 }
 document.getElementById("lth").addEventListener("click", handellth);
 document.getElementById("htl").addEventListener("click", handelhtl);
+
+const handlecat=(cat)=>{
+    fetch("http://localhost:3000/product")
+    .then((res)=>res.json())
+    .then((data)=>{
+        let fil=data.filter((item)=>item.category==cat);
+        // console.log(fil);
+        product(fil);
+    })
+}
+document.getElementById("all").addEventListener("click",()=>get());
+document.getElementById("men").addEventListener("click",()=>handlecat("men's clothing"));
+document.getElementById("women").addEventListener("click",()=>handlecat("women's clothing"));
+document.getElementById("electronics").addEventListener("click",()=>handlecat("electronics"));
+document.getElementById("Jewelery").addEventListener("click",()=>handlecat("jewelery"));
+
+const search=()=>{
+    let ser = document.getElementById("search").value;
+    let sort = products.filter((item)=> item.title.toLowerCase().match(ser.toLowerCase()));
+    product(sort);
+}
+document.getElementById("search").addEventListener("click",search);
+document.getElementById("search").addEventListener("click",(e)=>{
+    if(e.key == "Enter"){
+        search()
+    }
+});
+document.getElementById("search").addEventListener("input",()=>{
+    search();
+});
+
 
 const get = async()=>{
 

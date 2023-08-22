@@ -45,8 +45,10 @@ const logindata=(e)=>{
                 }
             }
             else{
-                alert("User Not Found")
-                
+                alert("User Not Found");
+                    setTimeout(()=>{
+                        window.location.href="/pages/signup.html"
+                    }, 1000);
             }
         })
     }
