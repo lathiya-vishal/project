@@ -67,10 +67,14 @@ form{
     border-radius: 10px;
     margin: auto;
     height: 100%;
-    display: table;
+    width: 70%;
     justify-content: center;
     align-items: center;
 
+}
+form input{
+    padding: 10px 0;
+    width: 100%;
 }
 
 #productpage{
