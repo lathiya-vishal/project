@@ -25,13 +25,11 @@ const product =(data)=>{
         price.style.paddingBottom="10px"
         price.style.color="white"
 
-
         let category = document.createElement("h4");
         category.innerHTML = item.category;
         category.style.paddingBottom="10px"
         category.style.color="white"
 
-      
         let star = document.createElement("p");
         if (item.rating.rate > 4){
             star.innerHTML = "*****";
@@ -45,6 +43,7 @@ const product =(data)=>{
             star.innerHTML = "*";
             star.style.color = "red";
         }
+
         star.style.paddingBottom="10px"
         star.style.fontSize="50px"
 
@@ -54,22 +53,54 @@ const product =(data)=>{
         btn1.style.borderRadius="10px"
         btn1.style.background="linear-gradient(45deg, rgba(93,98,13,1) 7%, rgba(53,97,53,1) 49%, rgba(13,95,98,1) 95%)"
 
-
         let btn2=document.createElement("button")
         btn2.innerHTML="Add to Cart"
+        btn2.setAttribute=("id","addtocart")
         btn2.style.padding="10px 30px"
         btn2.style.borderRadius="10px"
         btn2.style.background="linear-gradient(45deg, rgba(93,98,13,1) 7%, rgba(53,97,53,1) 49%, rgba(13,95,98,1) 95%)"
+        btn2.addEventListener("click",()=>{
+            let login=localStorage.getItem("loggedIn");
+            if(login){
+                fetch(`http://localhost:3000/cart?id=${item.id}`)
+                .then((res)=>res.json())
+                .then((data)=>{
+                    console.log(data);
+                    if(data.length>0){
+                        alert("product added cart")
 
+                        data[0].qty=data[0].qty+1;
+                        console.log(data[0].qty);
+                        fetch(`http://localhost:3000/cart/${data[0].id}`,{
+                            method:"PATCH",
+                            headers:{"Content-Type":"application/json"},
+                            body:JSON.stringify(...data)
+                        })
+                    }
+                    else{
+                        alert("added to cart")
+                        fetch(`http://localhost:3000/cart`,{
+                            method:"POST",
+                            headers:{"Content-Type":"application/json"},
+                            body:JSON.stringify({...item , qty:1})
+                        })
+                    }
+                })
+            }
+            else{
+                window.location.href="/pages/signin.html"
+            }
+
+        })
 
         let div = document.createElement("div")
         div.style.borderRadius="10px"
         div.style.padding="10px"
         div.style.background="linear-gradient(45deg, rgba(93,98,13,1) 7%, rgba(53,97,53,1) 49%, rgba(13,95,98,1) 95%)"
 
-        
         div.append(img, title, price, category, star, btn1 , btn2);
         document.getElementById("productpage").append(div);
+        
     })
 };
 
@@ -127,4 +158,3 @@ const get = async()=>{
     })
 }
 get();
-
